@@ -3,19 +3,19 @@ package fr.centralesupelec.if4030.directory.user;
 import java.util.List;
 import java.util.Scanner;
 
-// import fr.centralesupelec.if4030.directory.business.IAddEntry;
-// import fr.centralesupelec.if4030.directory.business.IContact;
-// import fr.centralesupelec.if4030.directory.business.ISearch;
+import fr.centralesupelec.if4030.directory.business.IAddEntry;
+import fr.centralesupelec.if4030.directory.business.IContact;
+import fr.centralesupelec.if4030.directory.business.ISearch;
 
 public class ConsoleAdapter {
 
-    // private ISearch search;
-    // private IAddEntry addEntry;
+    private ISearch search;
+    private IAddEntry addEntry;
 
-    // public ConsoleAdapter( ISearch search, IAddEntry addEntry ) {
-    //     this.search = search;
-    //     this.addEntry = addEntry;
-    // }
+    public ConsoleAdapter( ISearch search, IAddEntry addEntry ) {
+        this.search = search;
+        this.addEntry = addEntry;
+    }
 
     public void run() {
         Scanner input = new Scanner( System.in );
@@ -29,19 +29,19 @@ public class ConsoleAdapter {
             if( command.startsWith( "q" )) break;
 
             if( command.startsWith( "a" )) {
-                // List< IContact > list = search.search( input.next() );
-                // for( IContact contact : list ) {
-                //     System.out.print( contact.getFirstName() + " " + contact.getLastName().toUpperCase() + " : " );
-                //     for( Integer p : contact.getPhones() ) {
-                //         System.out.print( p + " " );
-                //     }
-                //     System.out.println();
-                // }
+                List< IContact > list = search.search( input.next() );
+                for( IContact contact : list ) {
+                    System.out.print( contact.getFirstName() + " " + contact.getLastName().toUpperCase() + " : " );
+                    for( Integer p : contact.getPhones() ) {
+                        System.out.print( p + " " );
+                    }
+                    System.out.println();
+                }
                 continue;
             }
 
             if( command.startsWith( "c" )) {
-                // addEntry.addPhone( input.next(), input.next(), Integer.valueOf( input.next() ));
+                addEntry.addPhone( input.next(), input.next(), Integer.valueOf( input.next() ));
             }
 
         }
