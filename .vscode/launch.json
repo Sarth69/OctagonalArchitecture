@@ -2,6 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch H2ContactDB",
+            "request": "launch",
+            "mainClass": "fr.centralesupelec.if4030.directory.server.H2ContactDB",
+            "projectName": "directory"
+        },
+        {
             "name": "C++20 - Build and debug active file",
             "type": "lldb",
             "request": "launch",
@@ -9,7 +16,9 @@
             "args": [],
             "cwd": "${fileDirname}",
             "preLaunchTask": "C++20: build active file",
-            "initCommands":["settings set target.disable-aslr false"]
+            "initCommands": [
+                "settings set target.disable-aslr false"
+            ]
         }
     ]
 }
