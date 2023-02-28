@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    version="3.0">
+
+    <persistence-unit name="fr.centralesupelec.if4030.directory.pu" transaction-type="RESOURCE_LOCAL">
+        <!-- Persistence provider -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Entity classes -->
+        <class>fr.centralesupelec.if4030.directory.server.Person</class>
+        <class>fr.centralesupelec.if4030.directory.server.Phone</class>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"   value="org.h2.Driver" />
+            <property name="jakarta.persistence.jdbc.url"      value="jdbc:h2:mem:persons" />
+            <property name="jakarta.persistence.jdbc.user"     value="sa" />
+            <property name="jakarta.persistence.jdbc.password" value="" />
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="show_sql" value="true"/>
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

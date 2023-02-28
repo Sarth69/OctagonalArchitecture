@@ -1,0 +1,26 @@
+
+syntax = "proto3";
+
+package if3040.grpc;
+
+message SetBoundsRequest {
+    int32 min = 1;
+    int32 max = 2;
+}
+
+message SetBoundsResponse {
+    ;
+}
+
+message NextRandomRequest {
+    ;
+}
+
+message NextRandomResponse {
+    int32 random = 1;
+}
+
+service RandomService {
+    rpc SetBounds( SetBoundsRequest ) returns ( SetBoundsResponse );
+    rpc NextRandom( NextRandomRequest ) returns ( NextRandomResponse );
+}
